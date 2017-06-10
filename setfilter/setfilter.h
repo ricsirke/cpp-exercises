@@ -16,13 +16,13 @@ class set_filtering{
 
 template<class T>
 set_filtering<T>::set_filtering(std::set<T> &s){
-    filtered_set = &s; // saving the reference of the set
+    filtered_set = &s; // saving the reference of the set, this is needed for modifying the set
 }
 
 template<class T>
 void set_filtering<T>::filter(T filter_out_val){
     typename std::set<T>::iterator it;
-    it = filtered_set->find(filter_out_val); // method invocation through pointer
+    it = filtered_set->find(filter_out_val); // method invocation through object pointer with ->
     if (it != filtered_set->end()) {
         erased_set.insert(filter_out_val);
         filtered_set->erase(it);
@@ -43,6 +43,7 @@ void set_filtering<T>::unfilter(T unfilter_val){
 
 template<class T>
 void set_filtering<T>::inverse() {
+    filtered_set->swap(erased_set);
     return;
 }
 

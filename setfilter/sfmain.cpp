@@ -99,6 +99,10 @@ int main()
   ti.insert( 7 );
   ti.insert( 2 );
   bool empty = ti.empty();
+  
+  std::cout << "smx size: " << smx.size() << "\n";
+  std::cout << "smx.count( 0 ): " << smx.count( 0 ) << "\n";
+  std::cout << "smx.count( 3 ): " << smx.count( 3 ) << "\n";
 
   if ( 2 == smx.size() && 1 == smx.count( 0 ) && 0 == smx.count( 3 ) )
   {
@@ -107,6 +111,12 @@ int main()
     tif.filter( 2 );
     empty = ti.empty();
   }
+  
+  std::cout << empty << "\n";
+  std::cout << !ti.empty() << "\n";
+  std::cout << sst.count( "World" ) << "\n";
+  std::cout << (1 == ti.count( 7 )) << "\n";
+  
   if ( empty && !ti.empty() && 1 == sst.count( "World" ) &&
        1 == ti.count( 7 ) )
   {
