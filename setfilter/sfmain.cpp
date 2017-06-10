@@ -60,15 +60,16 @@ const int max = 1000;
 int main()
 {
   int your_mark = 1;
-  /* 2-es
+  /* 2-es */
   std::set<std::string> sst;
   sst.insert( "Hello" );
   sst.insert( "World" );
   set_filtering<std::string> sstf( sst );
   sstf.filter( "World" );
-  sstf.filter( "No such string" );
+  sstf.filter( "No such string" );  
   sstf.unfilter( "World" );
   sstf.filter( "Hello" );
+  
 
   std::set<int> smx;
   for( int i = 0; i < max; ++i )
@@ -82,13 +83,14 @@ int main()
   smxf.filter( 1 );
   smxf.unfilter( 1 );
   smxf.unfilter( 2 * max );
+  
   if ( max - 2 == smx.size() && 0 == smx.count( max / 2 ) &&
        1 == sst.size() && 1 == sst.count( "World" ) )
   {
     your_mark = smx.count( 1 ) + smx.count( max - 1 );
   }
-  */
-  /* 3-as
+  
+  /* 3-as */
   smxf.inverse();
   sstf.inverse();
   sstf.inverse();
@@ -110,7 +112,7 @@ int main()
   {
     your_mark = *(ti.begin()) + sst.size();
   }
-  */
+  
   /* 4-es
   ~smxf;
   ~sstf;
